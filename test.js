@@ -2,7 +2,7 @@
 
 /*global require, process, console*/
 /*eslint no-console: ["error", { allow: ["warn", "error"] }] */
-
+/*
 'use strict';
 
 var nconf = require('nconf');
@@ -19,4 +19,4 @@ console.log(curURL);
 nconf.env();
 
 console.log('속성 수: ', process.argv);
-console.dir(nconf.get('OS'));
+console.dir(nconf.get('OS'));*/
