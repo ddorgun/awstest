@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/about', (req, res) => {
+    console.log('start about');
     res.render('about.html');
 });
 
