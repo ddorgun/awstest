@@ -4,17 +4,34 @@
 /*eslint no-console: ["error", { allow: ["warn", "error"] }] */
 
 
-const http = require('http');
+const express = require('express');
+const app = express();
 
-const hostname = '127.0.0.1';
-const port = 8000;
+const path = require('path');
 
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello World\n');
+const SERVER_PORT = 8000;
+
+//app.set("view options", {layout: false});
+//app.use(express.static(__dirname + '/views'));
+
+//ejs html render
+// HTML 위치 정의
+app.set('views', path.join(__dirname, 'views'));
+// HTML 렌더링 EJS 엔진 사용
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+
+
+//router
+const router = require('./routers/main');
+app.use('/', router);
+
+
+const server = app.listen(SERVER_PORT, () => {
+    console.log(`Express server has started on port ${SERVER_PORT}`);
 });
 
-server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
-});
+// 정적파일 CSS
+app.use(express.static('public'));
+
+
