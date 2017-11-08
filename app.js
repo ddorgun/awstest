@@ -9,7 +9,7 @@ const app = express();
 
 const path = require('path');
 
-const SERVER_PORT = 8000;
+const SERVER_PORT = 3000;
 
 //app.set("view options", {layout: false});
 //app.use(express.static(__dirname + '/views'));
